@@ -62,6 +62,9 @@ python main.py <file_paths> --report <report_type>
 python main.py data/data1.csv data/data2.csv data/data3.csv --report payout
 ```
 
+### Результат
+
+![img.png](data/img.png)
 ## Структура проекта
 
 ```
