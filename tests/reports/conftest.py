@@ -25,7 +25,7 @@ def data_for_payout_report() -> list[dict[str, str | int]]:
     """Фикстура с данными для тестирования "PayoutReport"."""
     return [
         dict(name='Alice Johnson', department='Marketing', hours=160, rate=50, payout=8000),
-        dict(name='Bob Smith',     department='Design',    hours=150, rate=40, payout=6000),
-        dict(name='Grace Lee',     department='HR',        hours=160, rate=45, payout=7200),
-        dict(name='Karen White',   department='Sales',     hours=165, rate=50, payout=8250),
+        dict(name='Bob Smith', department='Design', hours=150, rate=40, payout=6000),
+        dict(name='Grace Lee', department='HR', hours=160, rate=45, payout=7200),
+        dict(name='Karen White', department='Sales', hours=165, rate=50, payout=8250),
     ]
