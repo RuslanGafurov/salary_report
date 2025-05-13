@@ -62,9 +62,10 @@ python main.py <file_paths> --report <report_type>
 python main.py data/data1.csv data/data2.csv data/data3.csv --report payout
 ```
 
-### Результат
+### Результат payout отчёта
 
-![img.png](data/img.png)
+![img.png](data/images/payout_report_result.png)
+
 ## Структура проекта
 
 ```
@@ -99,6 +100,10 @@ pytest
 coverage run -m pytest
 coverage report
 ```
+
+### Результат покрытия тестами
+
+![img.png](data\images\test_coverage_report.png)
 
 ## Добавление новых отчетов
 
