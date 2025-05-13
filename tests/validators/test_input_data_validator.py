@@ -7,6 +7,7 @@ from validators.input_data_validator import InputDataValidator
 
 
 class TestInputDataValidator:
+    """Тестирует класс "InputDataValidator"."""
 
     @pytest.mark.parametrize('input_file_paths, valid_file_paths,  report_type, exception', [
         (['folder/file_1.format'], ['folder/file_1.format'], 'valid_report', does_not_raise()),
@@ -16,6 +17,7 @@ class TestInputDataValidator:
     @patch(target='os.path.isfile')
     @patch.object(InputDataValidator, 'VALID_REPORTS', new={'valid_report'})
     def test_validate(self, mock_isfile, input_file_paths, valid_file_paths, report_type, exception):
+        """Тестирует метод "validate"."""
 
         mock_isfile.side_effect = lambda path: path in valid_file_paths
         validator = InputDataValidator(input_file_paths, report_type)
@@ -28,6 +30,7 @@ class TestInputDataValidator:
     ])
     @patch('os.path.isfile')
     def test_validate_files(self, mock_isfile, file_paths, valid_file_paths, report_type, exception):
+        """Тестирует метод "validate_files"."""
 
         mock_isfile.side_effect = lambda path: path in valid_file_paths
         validator = InputDataValidator(file_paths, report_type)
@@ -40,6 +43,7 @@ class TestInputDataValidator:
     ])
     @patch.object(InputDataValidator, 'VALID_REPORTS', new={'valid_report'})
     def test_validate_report_type(self, file_paths, report_type, exception):
+        """Тестирует метод "validate_report_type"."""
 
         validator = InputDataValidator(file_paths, report_type)
         with exception:
