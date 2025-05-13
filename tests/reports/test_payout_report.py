@@ -1,18 +1,21 @@
 from collections import defaultdict
 from unittest.mock import patch
+
 import pytest
 
 from reports.payout_report import PayoutReport
 
 
 class TestPayoutReport:
+    """Тестирует класс "PayoutReport"."""
 
     @patch('reports.payout_report.PayoutReport.group_data_by_department')
     @patch('reports.payout_report.PayoutReport.get_max_lengths')
     @patch('reports.payout_report.PayoutReport.print_report')
     @patch('reports.base_report.BaseReport.read_files')
     def test_generate_report(self, mock_read_files, mock_print_report, mock_group_data, mock_lengths,
-                                                                                data_for_payout_report):
+                             data_for_payout_report):
+        """Тестирует метод "generate_report"."""
 
         mock_read_files.return_value = None
         mock_group_data.return_value = None
@@ -28,6 +31,7 @@ class TestPayoutReport:
 
     @patch('reports.base_report.BaseReport.read_files')
     def test_get_max_lengths(self, mock_read_files, data_for_payout_report):
+        """Тестирует метод "get_max_lengths"."""
 
         mock_read_files.return_value = None
 
@@ -47,6 +51,7 @@ class TestPayoutReport:
     ])
     @patch('reports.base_report.BaseReport.read_files')
     def test_group_data_by_department(self, mock_read_files, data_for_payout_report, expected_data):
+        """Тестирует метод "group_data_by_department"."""
 
         mock_read_files.return_value = None
 
@@ -66,6 +71,7 @@ class TestPayoutReport:
     @patch('builtins.print')
     @patch('reports.base_report.BaseReport.read_files')
     def test_print_report(self, mock_read_files, mock_print, data_for_payout_report):
+        """Тестирует метод "print_report"."""
 
         mock_read_files.return_value = None
 
