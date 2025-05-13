@@ -71,6 +71,12 @@ python main.py data/data1.csv data/data2.csv data/data3.csv --report payout
 ```
 salary_report/
 ├── data/
+│   ├── images/
+│   │   ├── payout_report_result.png
+│   │   └── test_coverage_report.png
+│   ├── data1.csv
+│   ├── data2.csv
+│   └── data3.csv
 ├── reports/
 │   ├── base_report.py
 │   └── payout_report.py
@@ -81,10 +87,16 @@ salary_report/
 │   │   ├── test_base_report.py
 │   │   └── test_payout_report.py
 │   ├── validators/
+│   │   ├── test_csv_files_validator.py
 │   │   └── test_input_data_validator.py
 ├── validators/
+│   ├── csv_files_validator.py
 │   └── input_data_validator.py
 ├── main.py
+├── models.py
+├── .flake8
+├── .gitignore
+├── README
 └── requirements
 ```
 
