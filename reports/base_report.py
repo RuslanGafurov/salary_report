@@ -1,19 +1,22 @@
 from typing import Any
 
+from models import Employee
+
 
 class BaseReport:
     """Базовый класс для обработки отчетов на основе данных из csv-файлов."""
 
-    def __init__(self, file_paths: list[str]):
+    def __init__(self, file_paths: list[str]) -> None:
         """
         Инициализирует экземпляр "BaseReport".
         :param file_paths: Список путей к файлам для чтения.
         """
         self.file_paths: list[str] = file_paths
         self.data: list[dict[str, Any]] = []
+        self.employees: list[Employee] = []
 
-    def read_files(self):
-        """Считывает файлы, указанные в self.file_paths, и парсит их содержимое."""
+    def read_files(self) -> None:
+        """Считывает файлы, указанные в self.file_paths, парсит их содержимое и сохраняет."""
 
         for file_path in self.file_paths:
             with open(file=file_path, mode='r', encoding='utf-8') as file:
@@ -22,7 +25,21 @@ class BaseReport:
                     continue
                 self.parse_data(lines)
 
-    def parse_data(self, lines: list[str]):
+        self.save_employees()
+
+    def save_employees(self) -> None:
+        """Сохраняет данные сотрудников."""
+
+        for employee in self.data:
+            self.employees.append(Employee(
+                name=employee['name'],
+                email=employee['email'],
+                department=employee['department'],
+                hours=employee['hours'],
+                rate=employee['rate'],
+            ))
+
+    def parse_data(self, lines: list[str]) -> None:
         """
         Парсит данные из строк и добавляет их в self.data.
         :param lines: Список строк с данными для парсинга.
